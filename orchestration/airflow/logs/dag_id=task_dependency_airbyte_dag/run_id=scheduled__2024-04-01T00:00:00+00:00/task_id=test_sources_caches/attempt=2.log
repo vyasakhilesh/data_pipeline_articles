@@ -1,0 +1,121 @@
+[2025-01-08T12:11:36.811+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-08T12:11:36.848+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: task_dependency_airbyte_dag.test_sources_caches scheduled__2024-04-01T00:00:00+00:00 [queued]>
+[2025-01-08T12:11:36.865+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: task_dependency_airbyte_dag.test_sources_caches scheduled__2024-04-01T00:00:00+00:00 [queued]>
+[2025-01-08T12:11:36.869+0000] {taskinstance.py:2866} INFO - Starting attempt 2 of 2
+[2025-01-08T12:11:37.034+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonVirtualenvOperator): test_sources_caches> on 2024-04-01 00:00:00+00:00
+[2025-01-08T12:11:37.046+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=11001) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-01-08T12:11:37.048+0000] {standard_task_runner.py:72} INFO - Started process 11008 to run task
+[2025-01-08T12:11:37.056+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'task_dependency_airbyte_dag', 'test_sources_caches', 'scheduled__2024-04-01T00:00:00+00:00', '--job-id', '387', '--raw', '--subdir', 'DAGS_FOLDER/test_airbyte.py', '--cfg-path', '/tmp/tmp604b8fiu']
+[2025-01-08T12:11:37.060+0000] {standard_task_runner.py:105} INFO - Job 387: Subtask test_sources_caches
+[2025-01-08T12:11:37.139+0000] {task_command.py:467} INFO - Running <TaskInstance: task_dependency_airbyte_dag.test_sources_caches scheduled__2024-04-01T00:00:00+00:00 [running]> on host 835c07788e84
+[2025-01-08T12:11:37.309+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='task_dependency_airbyte_dag' AIRFLOW_CTX_TASK_ID='test_sources_caches' AIRFLOW_CTX_EXECUTION_DATE='2024-04-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-04-01T00:00:00+00:00'
+[2025-01-08T12:11:37.310+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-08T12:11:37.335+0000] {baseoperator.py:421} WARNING - PythonVirtualenvOperator.execute cannot be called outside TaskInstance!
+[2025-01-08T12:11:37.336+0000] {process_utils.py:186} INFO - Executing cmd: /home/***/.local/bin/python -m virtualenv /tmp/venv8umq1vvb --python=python3.10
+[2025-01-08T12:11:37.338+0000] {process_utils.py:190} INFO - Output:
+[2025-01-08T12:11:38.186+0000] {process_utils.py:194} INFO - RuntimeError: failed to find interpreter for Builtin discover of python_spec='python3.10'
+[2025-01-08T12:11:38.238+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 505, in execute
+    return super().execute(context=serializable_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 868, in execute_callable
+    self._prepare_venv(tmp_path)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 769, in _prepare_venv
+    prepare_virtualenv(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/python_virtualenv.py", line 105, in prepare_virtualenv
+    execute_in_subprocess(virtualenv_cmd)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/process_utils.py", line 175, in execute_in_subprocess
+    execute_in_subprocess_with_kwargs(cmd, cwd=cwd, env=env)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/process_utils.py", line 198, in execute_in_subprocess_with_kwargs
+    raise subprocess.CalledProcessError(exit_code, cmd)
+subprocess.CalledProcessError: Command '['/home/airflow/.local/bin/python', '-m', 'virtualenv', '/tmp/venv8umq1vvb', '--python=python3.10']' returned non-zero exit status 1.
+[2025-01-08T12:11:38.249+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=task_dependency_airbyte_dag, task_id=test_sources_caches, run_id=scheduled__2024-04-01T00:00:00+00:00, execution_date=20240401T000000, start_date=20250108T121136, end_date=20250108T121138
+[2025-01-08T12:11:38.267+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-08T12:11:38.268+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 387 for task test_sources_caches (Command '['/home/airflow/.local/bin/python', '-m', 'virtualenv', '/tmp/venv8umq1vvb', '--python=python3.10']' returned non-zero exit status 1.; 11008)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 505, in execute
+    return super().execute(context=serializable_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 868, in execute_callable
+    self._prepare_venv(tmp_path)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 769, in _prepare_venv
+    prepare_virtualenv(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/python_virtualenv.py", line 105, in prepare_virtualenv
+    execute_in_subprocess(virtualenv_cmd)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/process_utils.py", line 175, in execute_in_subprocess
+    execute_in_subprocess_with_kwargs(cmd, cwd=cwd, env=env)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/process_utils.py", line 198, in execute_in_subprocess_with_kwargs
+    raise subprocess.CalledProcessError(exit_code, cmd)
+subprocess.CalledProcessError: Command '['/home/airflow/.local/bin/python', '-m', 'virtualenv', '/tmp/venv8umq1vvb', '--python=python3.10']' returned non-zero exit status 1.
+[2025-01-08T12:11:38.316+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-01-08T12:11:38.338+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-08T12:11:38.347+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

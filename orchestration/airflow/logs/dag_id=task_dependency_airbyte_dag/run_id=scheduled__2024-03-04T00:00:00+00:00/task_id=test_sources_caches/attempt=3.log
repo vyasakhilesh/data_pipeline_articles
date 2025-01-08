@@ -1,0 +1,536 @@
+[2025-01-08T12:24:45.043+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-08T12:24:45.091+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: task_dependency_airbyte_dag.test_sources_caches scheduled__2024-03-04T00:00:00+00:00 [queued]>
+[2025-01-08T12:24:45.143+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: task_dependency_airbyte_dag.test_sources_caches scheduled__2024-03-04T00:00:00+00:00 [queued]>
+[2025-01-08T12:24:45.144+0000] {taskinstance.py:2866} INFO - Starting attempt 3 of 4
+[2025-01-08T12:24:45.209+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonVirtualenvOperator): test_sources_caches> on 2024-03-04 00:00:00+00:00
+[2025-01-08T12:24:45.219+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=13229) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-01-08T12:24:45.239+0000] {standard_task_runner.py:72} INFO - Started process 13230 to run task
+[2025-01-08T12:24:45.243+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'task_dependency_airbyte_dag', 'test_sources_caches', 'scheduled__2024-03-04T00:00:00+00:00', '--job-id', '456', '--raw', '--subdir', 'DAGS_FOLDER/test_airbyte.py', '--cfg-path', '/tmp/tmpgm32hozs']
+[2025-01-08T12:24:45.247+0000] {standard_task_runner.py:105} INFO - Job 456: Subtask test_sources_caches
+[2025-01-08T12:24:45.360+0000] {task_command.py:467} INFO - Running <TaskInstance: task_dependency_airbyte_dag.test_sources_caches scheduled__2024-03-04T00:00:00+00:00 [running]> on host 835c07788e84
+[2025-01-08T12:24:45.569+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='task_dependency_airbyte_dag' AIRFLOW_CTX_TASK_ID='test_sources_caches' AIRFLOW_CTX_EXECUTION_DATE='2024-03-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-04T00:00:00+00:00'
+[2025-01-08T12:24:45.570+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-08T12:24:45.619+0000] {baseoperator.py:421} WARNING - PythonVirtualenvOperator.execute cannot be called outside TaskInstance!
+[2025-01-08T12:24:45.620+0000] {process_utils.py:186} INFO - Executing cmd: /home/***/.local/bin/python -m virtualenv /tmp/venv10jeyowi --python=python3.12
+[2025-01-08T12:24:45.633+0000] {process_utils.py:190} INFO - Output:
+[2025-01-08T12:24:47.645+0000] {process_utils.py:194} INFO - created virtual environment CPython3.12.8.final.0-64 in 501ms
+[2025-01-08T12:24:47.645+0000] {process_utils.py:194} INFO -   creator CPython3Posix(dest=/tmp/venv10jeyowi, clear=False, no_vcs_ignore=False, global=False)
+[2025-01-08T12:24:47.646+0000] {process_utils.py:194} INFO -   seeder FromAppData(download=False, pip=bundle, via=copy, app_data_dir=/home/***/.local/share/virtualenv)
+[2025-01-08T12:24:47.647+0000] {process_utils.py:194} INFO -     added seed packages: pip==24.3.1
+[2025-01-08T12:24:47.647+0000] {process_utils.py:194} INFO -   activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+[2025-01-08T12:24:47.699+0000] {process_utils.py:186} INFO - Executing cmd: /tmp/venv10jeyowi/bin/pip install -r /tmp/venv10jeyowi/requirements.txt
+[2025-01-08T12:24:47.705+0000] {process_utils.py:190} INFO - Output:
+[2025-01-08T12:24:51.870+0000] {process_utils.py:194} INFO - Collecting airbyte (from -r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:24:51.889+0000] {process_utils.py:194} INFO -   Using cached airbyte-0.22.0-py3-none-any.whl.metadata (5.4 kB)
+[2025-01-08T12:24:51.977+0000] {process_utils.py:194} INFO - Collecting airbyte-api<0.53.0,>=0.52.1 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:24:51.986+0000] {process_utils.py:194} INFO -   Using cached airbyte_api-0.52.2-py3-none-any.whl.metadata (17 kB)
+[2025-01-08T12:24:52.794+0000] {process_utils.py:194} INFO - Collecting airbyte-cdk<7.0.0,>=6.9.0 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:24:52.798+0000] {process_utils.py:194} INFO -   Using cached airbyte_cdk-6.13.0-py3-none-any.whl.metadata (6.0 kB)
+[2025-01-08T12:24:52.869+0000] {process_utils.py:194} INFO - Collecting airbyte-protocol-models-pdv2<0.14.0,>=0.13.0 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:24:52.873+0000] {process_utils.py:194} INFO -   Using cached airbyte_protocol_models_pdv2-0.13.1-py3-none-any.whl.metadata (3.6 kB)
+[2025-01-08T12:24:52.990+0000] {process_utils.py:194} INFO - Collecting click<9.0.0,>=8.1.7 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:24:53.025+0000] {process_utils.py:194} INFO -   Using cached click-8.1.8-py3-none-any.whl.metadata (2.3 kB)
+[2025-01-08T12:24:53.512+0000] {process_utils.py:194} INFO - Collecting duckdb<2.0.0,>=1.1.0 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:24:53.516+0000] {process_utils.py:194} INFO -   Using cached duckdb-1.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (762 bytes)
+[2025-01-08T12:24:53.615+0000] {process_utils.py:194} INFO - Collecting duckdb-engine<0.14.0,>=0.13.2 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:24:53.618+0000] {process_utils.py:194} INFO -   Using cached duckdb_engine-0.13.6-py3-none-any.whl.metadata (8.0 kB)
+[2025-01-08T12:24:53.935+0000] {process_utils.py:194} INFO - Collecting google-auth<3.0,>=2.27.0 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:24:53.939+0000] {process_utils.py:194} INFO -   Using cached google_auth-2.37.0-py2.py3-none-any.whl.metadata (4.8 kB)
+[2025-01-08T12:24:54.354+0000] {process_utils.py:194} INFO - Collecting google-cloud-bigquery<4.0,>=3.12.0 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:24:54.358+0000] {process_utils.py:194} INFO -   Using cached google_cloud_bigquery-3.27.0-py2.py3-none-any.whl.metadata (8.6 kB)
+[2025-01-08T12:24:54.662+0000] {process_utils.py:194} INFO - Collecting google-cloud-bigquery-storage<3.0.0,>=2.25.0 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:24:54.696+0000] {process_utils.py:194} INFO -   Using cached google_cloud_bigquery_storage-2.27.0-py2.py3-none-any.whl.metadata (5.6 kB)
+[2025-01-08T12:24:54.824+0000] {process_utils.py:194} INFO - Collecting google-cloud-secret-manager<3.0.0,>=2.17.0 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:24:54.828+0000] {process_utils.py:194} INFO -   Using cached google_cloud_secret_manager-2.22.0-py2.py3-none-any.whl.metadata (5.3 kB)
+[2025-01-08T12:24:54.992+0000] {process_utils.py:194} INFO - Collecting jsonschema<5.0,>=3.2.0 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:24:54.996+0000] {process_utils.py:194} INFO -   Using cached jsonschema-4.23.0-py3-none-any.whl.metadata (7.9 kB)
+[2025-01-08T12:24:55.954+0000] {process_utils.py:194} INFO - Collecting orjson<4.0,>=3.10 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:24:55.959+0000] {process_utils.py:194} INFO -   Using cached orjson-3.10.13-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (41 kB)
+[2025-01-08T12:24:56.051+0000] {process_utils.py:194} INFO - Collecting overrides<8.0.0,>=7.4.0 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:24:56.055+0000] {process_utils.py:194} INFO -   Using cached overrides-7.7.0-py3-none-any.whl.metadata (5.8 kB)
+[2025-01-08T12:24:56.676+0000] {process_utils.py:194} INFO - Collecting pandas<3.0,>=1.5.3 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:24:56.681+0000] {process_utils.py:194} INFO -   Using cached pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (89 kB)
+[2025-01-08T12:24:57.071+0000] {process_utils.py:194} INFO - Collecting pendulum<=3.0.0 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:24:57.079+0000] {process_utils.py:194} INFO -   Using cached pendulum-3.0.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.9 kB)
+[2025-01-08T12:24:57.440+0000] {process_utils.py:194} INFO - Collecting psycopg2-binary<3.0.0,>=2.9.9 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:24:57.446+0000] {process_utils.py:194} INFO -   Using cached psycopg2_binary-2.9.10-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
+[2025-01-08T12:24:57.558+0000] {process_utils.py:194} INFO - Collecting psycopg<4.0.0,>=3.1.19 (from psycopg[binary,pool]<4.0.0,>=3.1.19->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:24:57.562+0000] {process_utils.py:194} INFO -   Using cached psycopg-3.2.3-py3-none-any.whl.metadata (4.3 kB)
+[2025-01-08T12:24:57.918+0000] {process_utils.py:194} INFO - Collecting pyarrow<18.0,>=16.1 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:24:57.928+0000] {process_utils.py:194} INFO -   Using cached pyarrow-17.0.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+[2025-01-08T12:24:58.673+0000] {process_utils.py:194} INFO - Collecting pydantic<=3.0,>=2.0 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:24:58.676+0000] {process_utils.py:194} INFO -   Using cached pydantic-2.10.4-py3-none-any.whl.metadata (29 kB)
+[2025-01-08T12:25:00.751+0000] {process_utils.py:194} INFO - Collecting pydantic-core (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:00.755+0000] {process_utils.py:194} INFO -   Using cached pydantic_core-2.27.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+[2025-01-08T12:25:00.836+0000] {process_utils.py:194} INFO - Collecting python-dotenv<2.0.0,>=1.0.1 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:00.840+0000] {process_utils.py:194} INFO -   Using cached python_dotenv-1.0.1-py3-none-any.whl.metadata (23 kB)
+[2025-01-08T12:25:00.913+0000] {process_utils.py:194} INFO - Collecting python-ulid<4.0.0,>=3.0.0 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:00.917+0000] {process_utils.py:194} INFO -   Using cached python_ulid-3.0.0-py3-none-any.whl.metadata (5.8 kB)
+[2025-01-08T12:25:01.087+0000] {process_utils.py:194} INFO - Collecting pytz (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:01.091+0000] {process_utils.py:194} INFO -   Using cached pytz-2024.2-py2.py3-none-any.whl.metadata (22 kB)
+[2025-01-08T12:25:01.323+0000] {process_utils.py:194} INFO - Collecting pyyaml<7.0.0,>=6.0.2 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:01.326+0000] {process_utils.py:194} INFO -   Using cached PyYAML-6.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+[2025-01-08T12:25:01.608+0000] {process_utils.py:194} INFO - Collecting requests<=2.32.2 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:01.616+0000] {process_utils.py:194} INFO -   Using cached requests-2.32.2-py3-none-any.whl.metadata (4.6 kB)
+[2025-01-08T12:25:02.240+0000] {process_utils.py:194} INFO - Collecting rich<14.0.0,>=13.7.0 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:02.256+0000] {process_utils.py:194} INFO -   Using cached rich-13.9.4-py3-none-any.whl.metadata (18 kB)
+[2025-01-08T12:25:02.775+0000] {process_utils.py:194} INFO - Collecting snowflake-connector-python<4.0.0,>=3.12.2 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:02.779+0000] {process_utils.py:194} INFO -   Using cached snowflake_connector_python-3.12.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (65 kB)
+[2025-01-08T12:25:02.898+0000] {process_utils.py:194} INFO - Collecting snowflake-sqlalchemy<2.0.0,>=1.6.1 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:02.902+0000] {process_utils.py:194} INFO -   Using cached snowflake_sqlalchemy-1.7.2-py3-none-any.whl.metadata (28 kB)
+[2025-01-08T12:25:04.205+0000] {process_utils.py:194} INFO - Collecting sqlalchemy!=2.0.36,<3.0,>=1.4.51 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:04.208+0000] {process_utils.py:194} INFO -   Using cached SQLAlchemy-2.0.35-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.6 kB)
+[2025-01-08T12:25:04.411+0000] {process_utils.py:194} INFO - Collecting sqlalchemy-bigquery==1.12.0 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:04.434+0000] {process_utils.py:194} INFO -   Using cached sqlalchemy_bigquery-1.12.0-py2.py3-none-any.whl.metadata (15 kB)
+[2025-01-08T12:25:04.576+0000] {process_utils.py:194} INFO - Collecting structlog<25.0.0,>=24.4.0 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:04.578+0000] {process_utils.py:194} INFO -   Using cached structlog-24.4.0-py3-none-any.whl.metadata (7.3 kB)
+[2025-01-08T12:25:04.732+0000] {process_utils.py:194} INFO - Collecting typing-extensions (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:04.734+0000] {process_utils.py:194} INFO -   Using cached typing_extensions-4.12.2-py3-none-any.whl.metadata (3.0 kB)
+[2025-01-08T12:25:04.814+0000] {process_utils.py:194} INFO - Collecting uuid7<0.2.0,>=0.1.0 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:04.817+0000] {process_utils.py:194} INFO -   Using cached uuid7-0.1.0-py2.py3-none-any.whl.metadata (3.6 kB)
+[2025-01-08T12:25:05.161+0000] {process_utils.py:194} INFO - Collecting google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0dev,>=1.31.5 (from sqlalchemy-bigquery==1.12.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:05.164+0000] {process_utils.py:194} INFO -   Using cached google_api_core-2.24.0-py3-none-any.whl.metadata (3.0 kB)
+[2025-01-08T12:25:05.434+0000] {process_utils.py:194} INFO - Collecting packaging (from sqlalchemy-bigquery==1.12.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:05.437+0000] {process_utils.py:194} INFO -   Using cached packaging-24.2-py3-none-any.whl.metadata (3.2 kB)
+[2025-01-08T12:25:05.758+0000] {process_utils.py:194} INFO - Collecting certifi>=2023.7.22 (from airbyte-api<0.53.0,>=0.52.1->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:05.761+0000] {process_utils.py:194} INFO -   Using cached certifi-2024.12.14-py3-none-any.whl.metadata (2.3 kB)
+[2025-01-08T12:25:06.078+0000] {process_utils.py:194} INFO - Collecting charset-normalizer>=3.2.0 (from airbyte-api<0.53.0,>=0.52.1->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:06.086+0000] {process_utils.py:194} INFO -   Using cached charset_normalizer-3.4.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (35 kB)
+[2025-01-08T12:25:06.226+0000] {process_utils.py:194} INFO - Collecting dataclasses-json>=0.6.4 (from airbyte-api<0.53.0,>=0.52.1->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:06.230+0000] {process_utils.py:194} INFO -   Using cached dataclasses_json-0.6.7-py3-none-any.whl.metadata (25 kB)
+[2025-01-08T12:25:06.329+0000] {process_utils.py:194} INFO - Collecting idna>=3.4 (from airbyte-api<0.53.0,>=0.52.1->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:06.337+0000] {process_utils.py:194} INFO -   Using cached idna-3.10-py3-none-any.whl.metadata (10 kB)
+[2025-01-08T12:25:06.430+0000] {process_utils.py:194} INFO - Collecting jsonpath-python>=1.0.6 (from airbyte-api<0.53.0,>=0.52.1->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:06.434+0000] {process_utils.py:194} INFO -   Using cached jsonpath_python-1.0.6-py3-none-any.whl.metadata (12 kB)
+[2025-01-08T12:25:06.827+0000] {process_utils.py:194} INFO - Collecting marshmallow>=3.19.0 (from airbyte-api<0.53.0,>=0.52.1->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:06.845+0000] {process_utils.py:194} INFO -   Using cached marshmallow-3.24.1-py3-none-any.whl.metadata (7.1 kB)
+[2025-01-08T12:25:07.130+0000] {process_utils.py:194} INFO - Collecting mypy-extensions>=1.0.0 (from airbyte-api<0.53.0,>=0.52.1->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:07.173+0000] {process_utils.py:194} INFO -   Using cached mypy_extensions-1.0.0-py3-none-any.whl.metadata (1.1 kB)
+[2025-01-08T12:25:07.323+0000] {process_utils.py:194} INFO - Collecting python-dateutil>=2.8.2 (from airbyte-api<0.53.0,>=0.52.1->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:07.356+0000] {process_utils.py:194} INFO -   Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+[2025-01-08T12:25:07.493+0000] {process_utils.py:194} INFO - Collecting six>=1.16.0 (from airbyte-api<0.53.0,>=0.52.1->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:07.497+0000] {process_utils.py:194} INFO -   Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+[2025-01-08T12:25:07.560+0000] {process_utils.py:194} INFO - Collecting typing-inspect>=0.9.0 (from airbyte-api<0.53.0,>=0.52.1->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:07.562+0000] {process_utils.py:194} INFO -   Using cached typing_inspect-0.9.0-py3-none-any.whl.metadata (1.5 kB)
+[2025-01-08T12:25:07.783+0000] {process_utils.py:194} INFO - Collecting urllib3>=1.26.18 (from airbyte-api<0.53.0,>=0.52.1->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:07.787+0000] {process_utils.py:194} INFO -   Using cached urllib3-2.3.0-py3-none-any.whl.metadata (6.5 kB)
+[2025-01-08T12:25:07.979+0000] {process_utils.py:194} INFO - Collecting Jinja2<3.2.0,>=3.1.2 (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:07.997+0000] {process_utils.py:194} INFO -   Using cached jinja2-3.1.5-py3-none-any.whl.metadata (2.6 kB)
+[2025-01-08T12:25:08.092+0000] {process_utils.py:194} INFO - Collecting Unidecode<2.0,>=1.3 (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:08.128+0000] {process_utils.py:194} INFO -   Using cached Unidecode-1.3.8-py3-none-any.whl.metadata (13 kB)
+[2025-01-08T12:25:08.170+0000] {process_utils.py:194} INFO - Collecting airbyte-protocol-models-dataclasses<0.15,>=0.14 (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:08.173+0000] {process_utils.py:194} INFO -   Using cached airbyte_protocol_models_dataclasses-0.14.1-py3-none-any.whl.metadata (3.9 kB)
+[2025-01-08T12:25:08.256+0000] {process_utils.py:194} INFO - Collecting backoff (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:08.259+0000] {process_utils.py:194} INFO -   Using cached backoff-2.2.1-py3-none-any.whl.metadata (14 kB)
+[2025-01-08T12:25:08.387+0000] {process_utils.py:194} INFO - Collecting cachetools (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:08.390+0000] {process_utils.py:194} INFO -   Using cached cachetools-5.5.0-py3-none-any.whl.metadata (5.3 kB)
+[2025-01-08T12:25:09.305+0000] {process_utils.py:194} INFO - Collecting cryptography<44.0.0,>=42.0.5 (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:09.320+0000] {process_utils.py:194} INFO -   Using cached cryptography-43.0.3-cp39-abi3-manylinux_2_28_x86_64.whl.metadata (5.4 kB)
+[2025-01-08T12:25:09.648+0000] {process_utils.py:194} INFO - Collecting dpath<3.0.0,>=2.1.6 (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:09.685+0000] {process_utils.py:194} INFO -   Using cached dpath-2.2.0-py3-none-any.whl.metadata (15 kB)
+[2025-01-08T12:25:09.841+0000] {process_utils.py:194} INFO - Collecting dunamai<2.0.0,>=1.22.0 (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:09.845+0000] {process_utils.py:194} INFO -   Using cached dunamai-1.23.0-py3-none-any.whl.metadata (10 kB)
+[2025-01-08T12:25:09.900+0000] {process_utils.py:194} INFO - Collecting genson==1.3.0 (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:09.907+0000] {process_utils.py:194} INFO -   Using cached genson-1.3.0-py3-none-any.whl.metadata (28 kB)
+[2025-01-08T12:25:10.007+0000] {process_utils.py:194} INFO - Collecting isodate<0.7.0,>=0.6.1 (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:10.011+0000] {process_utils.py:194} INFO -   Using cached isodate-0.6.1-py2.py3-none-any.whl.metadata (9.6 kB)
+[2025-01-08T12:25:10.105+0000] {process_utils.py:194} INFO - Collecting jsonref<0.3,>=0.2 (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:10.108+0000] {process_utils.py:194} INFO -   Using cached jsonref-0.2-py3-none-any.whl.metadata (3.4 kB)
+[2025-01-08T12:25:10.165+0000] {process_utils.py:194} INFO - Collecting jsonschema<5.0,>=3.2.0 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:10.187+0000] {process_utils.py:194} INFO -   Using cached jsonschema-4.17.3-py3-none-any.whl.metadata (7.9 kB)
+[2025-01-08T12:25:10.551+0000] {process_utils.py:194} INFO - Collecting langchain_core==0.1.42 (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:10.555+0000] {process_utils.py:194} INFO -   Using cached langchain_core-0.1.42-py3-none-any.whl.metadata (5.9 kB)
+[2025-01-08T12:25:10.650+0000] {process_utils.py:194} INFO - Collecting nltk==3.9.1 (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:10.657+0000] {process_utils.py:194} INFO -   Using cached nltk-3.9.1-py3-none-any.whl.metadata (2.9 kB)
+[2025-01-08T12:25:11.517+0000] {process_utils.py:194} INFO - Collecting numpy<2 (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:11.520+0000] {process_utils.py:194} INFO -   Using cached numpy-1.26.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+[2025-01-08T12:25:11.582+0000] {process_utils.py:194} INFO - Collecting pandas<3.0,>=1.5.3 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:11.591+0000] {process_utils.py:194} INFO -   Using cached pandas-2.2.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (19 kB)
+[2025-01-08T12:25:11.647+0000] {process_utils.py:194} INFO - Collecting pendulum<=3.0.0 (from airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:11.651+0000] {process_utils.py:194} INFO -   Using cached pendulum-2.1.2.tar.gz (81 kB)
+[2025-01-08T12:25:11.743+0000] {process_utils.py:194} INFO -   Installing build dependencies: started
+[2025-01-08T12:25:17.666+0000] {process_utils.py:194} INFO -   Installing build dependencies: finished with status 'done'
+[2025-01-08T12:25:17.667+0000] {process_utils.py:194} INFO -   Getting requirements to build wheel: started
+[2025-01-08T12:25:18.874+0000] {process_utils.py:194} INFO -   Getting requirements to build wheel: finished with status 'done'
+[2025-01-08T12:25:18.875+0000] {process_utils.py:194} INFO -   Preparing metadata (pyproject.toml): started
+[2025-01-08T12:25:21.455+0000] {process_utils.py:194} INFO -   Preparing metadata (pyproject.toml): finished with status 'done'
+[2025-01-08T12:25:22.024+0000] {process_utils.py:194} INFO - Collecting psutil==6.1.0 (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:22.029+0000] {process_utils.py:194} INFO -   Using cached psutil-6.1.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (22 kB)
+[2025-01-08T12:25:22.209+0000] {process_utils.py:194} INFO - Collecting pyjwt<3.0.0,>=2.8.0 (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:22.235+0000] {process_utils.py:194} INFO -   Using cached PyJWT-2.10.1-py3-none-any.whl.metadata (4.0 kB)
+[2025-01-08T12:25:22.602+0000] {process_utils.py:194} INFO - Collecting pyrate-limiter<3.2.0,>=3.1.0 (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:22.639+0000] {process_utils.py:194} INFO -   Using cached pyrate_limiter-3.1.1-py3-none-any.whl.metadata (22 kB)
+[2025-01-08T12:25:25.377+0000] {process_utils.py:194} INFO - Collecting rapidfuzz<4.0.0,>=3.10.1 (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:25.383+0000] {process_utils.py:194} INFO -   Using cached rapidfuzz-3.11.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
+[2025-01-08T12:25:25.514+0000] {process_utils.py:194} INFO - Collecting requests_cache (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:25.523+0000] {process_utils.py:194} INFO -   Using cached requests_cache-1.2.1-py3-none-any.whl.metadata (9.9 kB)
+[2025-01-08T12:25:25.888+0000] {process_utils.py:194} INFO - Collecting serpyco-rs<2.0.0,>=1.10.2 (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:25.894+0000] {process_utils.py:194} INFO -   Using cached serpyco_rs-1.11.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (16 kB)
+[2025-01-08T12:25:25.989+0000] {process_utils.py:194} INFO - Collecting wcmatch==10.0 (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:25.992+0000] {process_utils.py:194} INFO -   Using cached wcmatch-10.0-py3-none-any.whl.metadata (5.0 kB)
+[2025-01-08T12:25:26.059+0000] {process_utils.py:194} INFO - Collecting xmltodict<0.14.0,>=0.13.0 (from airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:26.064+0000] {process_utils.py:194} INFO -   Using cached xmltodict-0.13.0-py2.py3-none-any.whl.metadata (7.7 kB)
+[2025-01-08T12:25:26.196+0000] {process_utils.py:194} INFO - Collecting tzdata>=2022.7 (from pandas<3.0,>=1.5.3->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:26.200+0000] {process_utils.py:194} INFO -   Using cached tzdata-2024.2-py2.py3-none-any.whl.metadata (1.4 kB)
+[2025-01-08T12:25:26.371+0000] {process_utils.py:194} INFO - Collecting jsonpatch<2.0,>=1.33 (from langchain_core==0.1.42->airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:26.375+0000] {process_utils.py:194} INFO -   Using cached jsonpatch-1.33-py2.py3-none-any.whl.metadata (3.0 kB)
+[2025-01-08T12:25:26.849+0000] {process_utils.py:194} INFO - Collecting langsmith<0.2.0,>=0.1.0 (from langchain_core==0.1.42->airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:26.853+0000] {process_utils.py:194} INFO -   Using cached langsmith-0.1.147-py3-none-any.whl.metadata (14 kB)
+[2025-01-08T12:25:26.890+0000] {process_utils.py:194} INFO - Collecting packaging (from sqlalchemy-bigquery==1.12.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:26.896+0000] {process_utils.py:194} INFO -   Using cached packaging-23.2-py3-none-any.whl.metadata (3.2 kB)
+[2025-01-08T12:25:27.119+0000] {process_utils.py:194} INFO - Collecting tenacity<9.0.0,>=8.1.0 (from langchain_core==0.1.42->airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:27.161+0000] {process_utils.py:194} INFO -   Using cached tenacity-8.5.0-py3-none-any.whl.metadata (1.2 kB)
+[2025-01-08T12:25:27.354+0000] {process_utils.py:194} INFO - Collecting joblib (from nltk==3.9.1->airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:27.416+0000] {process_utils.py:194} INFO -   Using cached joblib-1.4.2-py3-none-any.whl.metadata (5.4 kB)
+[2025-01-08T12:25:29.243+0000] {process_utils.py:194} INFO - Collecting regex>=2021.8.3 (from nltk==3.9.1->airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:29.248+0000] {process_utils.py:194} INFO -   Using cached regex-2024.11.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (40 kB)
+[2025-01-08T12:25:29.568+0000] {process_utils.py:194} INFO - Collecting tqdm (from nltk==3.9.1->airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:29.572+0000] {process_utils.py:194} INFO -   Using cached tqdm-4.67.1-py3-none-any.whl.metadata (57 kB)
+[2025-01-08T12:25:29.735+0000] {process_utils.py:194} INFO - Collecting bracex>=2.1.1 (from wcmatch==10.0->airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:29.791+0000] {process_utils.py:194} INFO -   Using cached bracex-2.5.post1-py3-none-any.whl.metadata (3.5 kB)
+[2025-01-08T12:25:30.415+0000] {process_utils.py:194} INFO - Collecting pyasn1-modules>=0.2.1 (from google-auth<3.0,>=2.27.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:30.418+0000] {process_utils.py:194} INFO -   Using cached pyasn1_modules-0.4.1-py3-none-any.whl.metadata (3.5 kB)
+[2025-01-08T12:25:30.600+0000] {process_utils.py:194} INFO - Collecting rsa<5,>=3.1.4 (from google-auth<3.0,>=2.27.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:30.606+0000] {process_utils.py:194} INFO -   Using cached rsa-4.9-py3-none-any.whl.metadata (4.2 kB)
+[2025-01-08T12:25:30.956+0000] {process_utils.py:194} INFO - Collecting google-cloud-core<3.0.0dev,>=2.4.1 (from google-cloud-bigquery<4.0,>=3.12.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:30.964+0000] {process_utils.py:194} INFO -   Using cached google_cloud_core-2.4.1-py2.py3-none-any.whl.metadata (2.7 kB)
+[2025-01-08T12:25:31.157+0000] {process_utils.py:194} INFO - Collecting google-resumable-media<3.0dev,>=2.0.0 (from google-cloud-bigquery<4.0,>=3.12.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:31.177+0000] {process_utils.py:194} INFO -   Using cached google_resumable_media-2.7.2-py2.py3-none-any.whl.metadata (2.2 kB)
+[2025-01-08T12:25:31.888+0000] {process_utils.py:194} INFO - Collecting proto-plus<2.0.0dev,>=1.22.0 (from google-cloud-bigquery-storage<3.0.0,>=2.25.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:31.901+0000] {process_utils.py:194} INFO -   Using cached proto_plus-1.25.0-py3-none-any.whl.metadata (2.2 kB)
+[2025-01-08T12:25:32.921+0000] {process_utils.py:194} INFO - Collecting protobuf!=3.20.0,!=3.20.1,!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5,<6.0.0dev,>=3.20.2 (from google-cloud-bigquery-storage<3.0.0,>=2.25.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:32.984+0000] {process_utils.py:194} INFO -   Using cached protobuf-5.29.2-cp38-abi3-manylinux2014_x86_64.whl.metadata (592 bytes)
+[2025-01-08T12:25:33.632+0000] {process_utils.py:194} INFO - Collecting grpc-google-iam-v1<1.0.0dev,>=0.12.4 (from google-cloud-secret-manager<3.0.0,>=2.17.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:33.644+0000] {process_utils.py:194} INFO -   Using cached grpc_google_iam_v1-0.14.0-py2.py3-none-any.whl.metadata (3.3 kB)
+[2025-01-08T12:25:33.776+0000] {process_utils.py:194} INFO - Collecting attrs>=17.4.0 (from jsonschema<5.0,>=3.2.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:33.780+0000] {process_utils.py:194} INFO -   Using cached attrs-24.3.0-py3-none-any.whl.metadata (11 kB)
+[2025-01-08T12:25:34.032+0000] {process_utils.py:194} INFO - Collecting pyrsistent!=0.17.0,!=0.17.1,!=0.17.2,>=0.14.0 (from jsonschema<5.0,>=3.2.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:34.052+0000] {process_utils.py:194} INFO -   Using cached pyrsistent-0.20.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (27 kB)
+[2025-01-08T12:25:34.193+0000] {process_utils.py:194} INFO - Collecting pytzdata>=2020.1 (from pendulum<=3.0.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:34.196+0000] {process_utils.py:194} INFO -   Using cached pytzdata-2020.1-py2.py3-none-any.whl.metadata (2.3 kB)
+[2025-01-08T12:25:34.770+0000] {process_utils.py:194} INFO - Collecting psycopg-binary==3.2.3 (from psycopg[binary,pool]<4.0.0,>=3.1.19->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:34.774+0000] {process_utils.py:194} INFO -   Using cached psycopg_binary-3.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.8 kB)
+[2025-01-08T12:25:34.834+0000] {process_utils.py:194} INFO - Collecting psycopg-pool (from psycopg[binary,pool]<4.0.0,>=3.1.19->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:34.837+0000] {process_utils.py:194} INFO -   Using cached psycopg_pool-3.2.4-py3-none-any.whl.metadata (2.6 kB)
+[2025-01-08T12:25:34.942+0000] {process_utils.py:194} INFO - Collecting annotated-types>=0.6.0 (from pydantic<=3.0,>=2.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:34.946+0000] {process_utils.py:194} INFO -   Using cached annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+[2025-01-08T12:25:35.305+0000] {process_utils.py:194} INFO - Collecting markdown-it-py>=2.2.0 (from rich<14.0.0,>=13.7.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:35.309+0000] {process_utils.py:194} INFO -   Using cached markdown_it_py-3.0.0-py3-none-any.whl.metadata (6.9 kB)
+[2025-01-08T12:25:35.548+0000] {process_utils.py:194} INFO - Collecting pygments<3.0.0,>=2.13.0 (from rich<14.0.0,>=13.7.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:35.552+0000] {process_utils.py:194} INFO -   Using cached pygments-2.19.1-py3-none-any.whl.metadata (2.5 kB)
+[2025-01-08T12:25:35.648+0000] {process_utils.py:194} INFO - Collecting asn1crypto<2.0.0,>0.24.0 (from snowflake-connector-python<4.0.0,>=3.12.2->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:35.653+0000] {process_utils.py:194} INFO -   Using cached asn1crypto-1.5.1-py2.py3-none-any.whl.metadata (13 kB)
+[2025-01-08T12:25:36.070+0000] {process_utils.py:194} INFO - Collecting cffi<2.0.0,>=1.9 (from snowflake-connector-python<4.0.0,>=3.12.2->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:36.073+0000] {process_utils.py:194} INFO -   Using cached cffi-1.17.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.5 kB)
+[2025-01-08T12:25:36.270+0000] {process_utils.py:194} INFO - Collecting pyOpenSSL<25.0.0,>=22.0.0 (from snowflake-connector-python<4.0.0,>=3.12.2->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:36.274+0000] {process_utils.py:194} INFO -   Using cached pyOpenSSL-24.3.0-py3-none-any.whl.metadata (15 kB)
+[2025-01-08T12:25:36.547+0000] {process_utils.py:194} INFO - Collecting filelock<4,>=3.5 (from snowflake-connector-python<4.0.0,>=3.12.2->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:36.551+0000] {process_utils.py:194} INFO -   Using cached filelock-3.16.1-py3-none-any.whl.metadata (2.9 kB)
+[2025-01-08T12:25:36.748+0000] {process_utils.py:194} INFO - Collecting sortedcontainers>=2.4.0 (from snowflake-connector-python<4.0.0,>=3.12.2->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:36.752+0000] {process_utils.py:194} INFO -   Using cached sortedcontainers-2.4.0-py2.py3-none-any.whl.metadata (10 kB)
+[2025-01-08T12:25:36.899+0000] {process_utils.py:194} INFO - Collecting platformdirs<5.0.0,>=2.6.0 (from snowflake-connector-python<4.0.0,>=3.12.2->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:36.914+0000] {process_utils.py:194} INFO -   Using cached platformdirs-4.3.6-py3-none-any.whl.metadata (11 kB)
+[2025-01-08T12:25:37.035+0000] {process_utils.py:194} INFO - Collecting tomlkit (from snowflake-connector-python<4.0.0,>=3.12.2->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:37.039+0000] {process_utils.py:194} INFO -   Using cached tomlkit-0.13.2-py3-none-any.whl.metadata (2.7 kB)
+[2025-01-08T12:25:37.669+0000] {process_utils.py:194} INFO - Collecting greenlet!=0.4.17 (from sqlalchemy!=2.0.36,<3.0,>=1.4.51->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:37.673+0000] {process_utils.py:194} INFO -   Using cached greenlet-3.1.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+[2025-01-08T12:25:37.873+0000] {process_utils.py:194} INFO - Collecting pycparser (from cffi<2.0.0,>=1.9->snowflake-connector-python<4.0.0,>=3.12.2->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:37.885+0000] {process_utils.py:194} INFO -   Using cached pycparser-2.22-py3-none-any.whl.metadata (943 bytes)
+[2025-01-08T12:25:38.259+0000] {process_utils.py:194} INFO - Collecting googleapis-common-protos<2.0.dev0,>=1.56.2 (from google-api-core!=2.0.*,!=2.1.*,!=2.2.*,!=2.3.0,<3.0.0dev,>=1.31.5->sqlalchemy-bigquery==1.12.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:38.263+0000] {process_utils.py:194} INFO -   Using cached googleapis_common_protos-1.66.0-py2.py3-none-any.whl.metadata (1.5 kB)
+[2025-01-08T12:25:41.533+0000] {process_utils.py:194} INFO - Collecting grpcio<2.0dev,>=1.33.2 (from google-api-core[grpc]<3.0.0dev,>=2.11.1->google-cloud-bigquery<4.0,>=3.12.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:41.537+0000] {process_utils.py:194} INFO -   Using cached grpcio-1.69.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.9 kB)
+[2025-01-08T12:25:41.742+0000] {process_utils.py:194} INFO - Collecting grpcio-status<2.0.dev0,>=1.33.2 (from google-api-core[grpc]<3.0.0dev,>=2.11.1->google-cloud-bigquery<4.0,>=3.12.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:41.746+0000] {process_utils.py:194} INFO -   Using cached grpcio_status-1.69.0-py3-none-any.whl.metadata (1.1 kB)
+[2025-01-08T12:25:42.005+0000] {process_utils.py:194} INFO - Collecting google-crc32c<2.0dev,>=1.0 (from google-resumable-media<3.0dev,>=2.0.0->google-cloud-bigquery<4.0,>=3.12.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:42.010+0000] {process_utils.py:194} INFO -   Using cached google_crc32c-1.6.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.3 kB)
+[2025-01-08T12:25:42.427+0000] {process_utils.py:194} INFO - Collecting MarkupSafe>=2.0 (from Jinja2<3.2.0,>=3.1.2->airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:42.431+0000] {process_utils.py:194} INFO -   Using cached MarkupSafe-3.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+[2025-01-08T12:25:42.490+0000] {process_utils.py:194} INFO - Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich<14.0.0,>=13.7.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:42.494+0000] {process_utils.py:194} INFO -   Using cached mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+[2025-01-08T12:25:43.063+0000] {process_utils.py:194} INFO - Collecting pyasn1<0.7.0,>=0.4.6 (from pyasn1-modules>=0.2.1->google-auth<3.0,>=2.27.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:43.067+0000] {process_utils.py:194} INFO -   Using cached pyasn1-0.6.1-py3-none-any.whl.metadata (8.4 kB)
+[2025-01-08T12:25:43.405+0000] {process_utils.py:194} INFO - Collecting attributes-doc (from serpyco-rs<2.0.0,>=1.10.2->airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:43.409+0000] {process_utils.py:194} INFO -   Using cached attributes_doc-0.4.0-py2.py3-none-any.whl.metadata (3.4 kB)
+[2025-01-08T12:25:43.628+0000] {process_utils.py:194} INFO - Collecting cattrs>=22.2 (from requests_cache->airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:43.632+0000] {process_utils.py:194} INFO -   Using cached cattrs-24.1.2-py3-none-any.whl.metadata (8.4 kB)
+[2025-01-08T12:25:43.788+0000] {process_utils.py:194} INFO - Collecting url-normalize>=1.4 (from requests_cache->airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:43.808+0000] {process_utils.py:194} INFO -   Using cached url_normalize-1.4.3-py2.py3-none-any.whl.metadata (3.1 kB)
+[2025-01-08T12:25:44.283+0000] {process_utils.py:194} INFO - Collecting jsonpointer>=1.9 (from jsonpatch<2.0,>=1.33->langchain_core==0.1.42->airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:44.305+0000] {process_utils.py:194} INFO -   Using cached jsonpointer-3.0.0-py2.py3-none-any.whl.metadata (2.3 kB)
+[2025-01-08T12:25:44.438+0000] {process_utils.py:194} INFO - Collecting httpx<1,>=0.23.0 (from langsmith<0.2.0,>=0.1.0->langchain_core==0.1.42->airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:44.442+0000] {process_utils.py:194} INFO -   Using cached httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+[2025-01-08T12:25:44.609+0000] {process_utils.py:194} INFO - Collecting requests-toolbelt<2.0.0,>=1.0.0 (from langsmith<0.2.0,>=0.1.0->langchain_core==0.1.42->airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:44.613+0000] {process_utils.py:194} INFO -   Using cached requests_toolbelt-1.0.0-py2.py3-none-any.whl.metadata (14 kB)
+[2025-01-08T12:25:44.987+0000] {process_utils.py:194} INFO - Collecting anyio (from httpx<1,>=0.23.0->langsmith<0.2.0,>=0.1.0->langchain_core==0.1.42->airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:44.992+0000] {process_utils.py:194} INFO -   Using cached anyio-4.8.0-py3-none-any.whl.metadata (4.6 kB)
+[2025-01-08T12:25:45.171+0000] {process_utils.py:194} INFO - Collecting httpcore==1.* (from httpx<1,>=0.23.0->langsmith<0.2.0,>=0.1.0->langchain_core==0.1.42->airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:45.176+0000] {process_utils.py:194} INFO -   Using cached httpcore-1.0.7-py3-none-any.whl.metadata (21 kB)
+[2025-01-08T12:25:45.240+0000] {process_utils.py:194} INFO - Collecting h11<0.15,>=0.13 (from httpcore==1.*->httpx<1,>=0.23.0->langsmith<0.2.0,>=0.1.0->langchain_core==0.1.42->airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:45.244+0000] {process_utils.py:194} INFO -   Using cached h11-0.14.0-py3-none-any.whl.metadata (8.2 kB)
+[2025-01-08T12:25:45.402+0000] {process_utils.py:194} INFO - Collecting sniffio>=1.1 (from anyio->httpx<1,>=0.23.0->langsmith<0.2.0,>=0.1.0->langchain_core==0.1.42->airbyte-cdk<7.0.0,>=6.9.0->airbyte->-r /tmp/venv10jeyowi/requirements.txt (line 1))
+[2025-01-08T12:25:45.422+0000] {process_utils.py:194} INFO -   Using cached sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+[2025-01-08T12:25:45.565+0000] {process_utils.py:194} INFO - Using cached airbyte-0.22.0-py3-none-any.whl (182 kB)
+[2025-01-08T12:25:45.567+0000] {process_utils.py:194} INFO - Using cached sqlalchemy_bigquery-1.12.0-py2.py3-none-any.whl (38 kB)
+[2025-01-08T12:25:45.582+0000] {process_utils.py:194} INFO - Using cached airbyte_api-0.52.2-py3-none-any.whl (651 kB)
+[2025-01-08T12:25:45.586+0000] {process_utils.py:194} INFO - Using cached airbyte_cdk-6.13.0-py3-none-any.whl (544 kB)
+[2025-01-08T12:25:45.611+0000] {process_utils.py:194} INFO - Using cached pandas-2.2.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.7 MB)
+[2025-01-08T12:25:45.653+0000] {process_utils.py:194} INFO - Using cached pytz-2024.2-py2.py3-none-any.whl (508 kB)
+[2025-01-08T12:25:45.673+0000] {process_utils.py:194} INFO - Using cached genson-1.3.0-py3-none-any.whl (21 kB)
+[2025-01-08T12:25:45.676+0000] {process_utils.py:194} INFO - Using cached langchain_core-0.1.42-py3-none-any.whl (287 kB)
+[2025-01-08T12:25:45.685+0000] {process_utils.py:194} INFO - Using cached nltk-3.9.1-py3-none-any.whl (1.5 MB)
+[2025-01-08T12:25:45.692+0000] {process_utils.py:194} INFO - Using cached psutil-6.1.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (287 kB)
+[2025-01-08T12:25:45.697+0000] {process_utils.py:194} INFO - Using cached wcmatch-10.0-py3-none-any.whl (39 kB)
+[2025-01-08T12:25:45.705+0000] {process_utils.py:194} INFO - Using cached airbyte_protocol_models_pdv2-0.13.1-py3-none-any.whl (10.0 kB)
+[2025-01-08T12:25:45.711+0000] {process_utils.py:194} INFO - Using cached click-8.1.8-py3-none-any.whl (98 kB)
+[2025-01-08T12:25:45.715+0000] {process_utils.py:194} INFO - Using cached duckdb-1.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (20.2 MB)
+[2025-01-08T12:25:45.750+0000] {process_utils.py:194} INFO - Using cached duckdb_engine-0.13.6-py3-none-any.whl (48 kB)
+[2025-01-08T12:25:45.755+0000] {process_utils.py:194} INFO - Using cached google_auth-2.37.0-py2.py3-none-any.whl (209 kB)
+[2025-01-08T12:25:45.760+0000] {process_utils.py:194} INFO - Using cached google_cloud_bigquery-3.27.0-py2.py3-none-any.whl (240 kB)
+[2025-01-08T12:25:45.764+0000] {process_utils.py:194} INFO - Using cached google_cloud_bigquery_storage-2.27.0-py2.py3-none-any.whl (240 kB)
+[2025-01-08T12:25:45.770+0000] {process_utils.py:194} INFO - Using cached google_cloud_secret_manager-2.22.0-py2.py3-none-any.whl (208 kB)
+[2025-01-08T12:25:45.785+0000] {process_utils.py:194} INFO - Using cached jsonschema-4.17.3-py3-none-any.whl (90 kB)
+[2025-01-08T12:25:45.788+0000] {process_utils.py:194} INFO - Using cached orjson-3.10.13-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (131 kB)
+[2025-01-08T12:25:45.798+0000] {process_utils.py:194} INFO - Using cached overrides-7.7.0-py3-none-any.whl (17 kB)
+[2025-01-08T12:25:45.803+0000] {process_utils.py:194} INFO - Using cached psycopg-3.2.3-py3-none-any.whl (197 kB)
+[2025-01-08T12:25:45.807+0000] {process_utils.py:194} INFO - Using cached psycopg2_binary-2.9.10-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
+[2025-01-08T12:25:45.813+0000] {process_utils.py:194} INFO - Using cached psycopg_binary-3.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.2 MB)
+[2025-01-08T12:25:45.821+0000] {process_utils.py:194} INFO - Using cached pyarrow-17.0.0-cp312-cp312-manylinux_2_28_x86_64.whl (39.9 MB)
+[2025-01-08T12:25:45.864+0000] {process_utils.py:194} INFO - Using cached pydantic-2.10.4-py3-none-any.whl (431 kB)
+[2025-01-08T12:25:45.880+0000] {process_utils.py:194} INFO - Using cached pydantic_core-2.27.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+[2025-01-08T12:25:45.886+0000] {process_utils.py:194} INFO - Using cached python_dotenv-1.0.1-py3-none-any.whl (19 kB)
+[2025-01-08T12:25:45.890+0000] {process_utils.py:194} INFO - Using cached python_ulid-3.0.0-py3-none-any.whl (11 kB)
+[2025-01-08T12:25:45.895+0000] {process_utils.py:194} INFO - Using cached PyYAML-6.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (767 kB)
+[2025-01-08T12:25:45.904+0000] {process_utils.py:194} INFO - Using cached requests-2.32.2-py3-none-any.whl (63 kB)
+[2025-01-08T12:25:45.905+0000] {process_utils.py:194} INFO - Using cached rich-13.9.4-py3-none-any.whl (242 kB)
+[2025-01-08T12:25:45.906+0000] {process_utils.py:194} INFO - Using cached snowflake_connector_python-3.12.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.6 MB)
+[2025-01-08T12:25:45.914+0000] {process_utils.py:194} INFO - Using cached snowflake_sqlalchemy-1.7.2-py3-none-any.whl (69 kB)
+[2025-01-08T12:25:45.918+0000] {process_utils.py:194} INFO - Using cached SQLAlchemy-2.0.35-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.2 MB)
+[2025-01-08T12:25:45.928+0000] {process_utils.py:194} INFO - Using cached structlog-24.4.0-py3-none-any.whl (67 kB)
+[2025-01-08T12:25:45.938+0000] {process_utils.py:194} INFO - Using cached typing_extensions-4.12.2-py3-none-any.whl (37 kB)
+[2025-01-08T12:25:45.943+0000] {process_utils.py:194} INFO - Using cached uuid7-0.1.0-py2.py3-none-any.whl (7.5 kB)
+[2025-01-08T12:25:45.947+0000] {process_utils.py:194} INFO - Using cached airbyte_protocol_models_dataclasses-0.14.1-py3-none-any.whl (6.9 kB)
+[2025-01-08T12:25:45.951+0000] {process_utils.py:194} INFO - Using cached annotated_types-0.7.0-py3-none-any.whl (13 kB)
+[2025-01-08T12:25:45.958+0000] {process_utils.py:194} INFO - Using cached asn1crypto-1.5.1-py2.py3-none-any.whl (105 kB)
+[2025-01-08T12:25:45.966+0000] {process_utils.py:194} INFO - Using cached attrs-24.3.0-py3-none-any.whl (63 kB)
+[2025-01-08T12:25:45.970+0000] {process_utils.py:194} INFO - Using cached cachetools-5.5.0-py3-none-any.whl (9.5 kB)
+[2025-01-08T12:25:45.976+0000] {process_utils.py:194} INFO - Using cached certifi-2024.12.14-py3-none-any.whl (164 kB)
+[2025-01-08T12:25:45.983+0000] {process_utils.py:194} INFO - Using cached cffi-1.17.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (479 kB)
+[2025-01-08T12:25:45.988+0000] {process_utils.py:194} INFO - Using cached charset_normalizer-3.4.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (145 kB)
+[2025-01-08T12:25:45.993+0000] {process_utils.py:194} INFO - Using cached cryptography-43.0.3-cp39-abi3-manylinux_2_28_x86_64.whl (4.0 MB)
+[2025-01-08T12:25:46.002+0000] {process_utils.py:194} INFO - Using cached dataclasses_json-0.6.7-py3-none-any.whl (28 kB)
+[2025-01-08T12:25:46.006+0000] {process_utils.py:194} INFO - Using cached dpath-2.2.0-py3-none-any.whl (17 kB)
+[2025-01-08T12:25:46.010+0000] {process_utils.py:194} INFO - Using cached dunamai-1.23.0-py3-none-any.whl (26 kB)
+[2025-01-08T12:25:46.014+0000] {process_utils.py:194} INFO - Using cached filelock-3.16.1-py3-none-any.whl (16 kB)
+[2025-01-08T12:25:46.017+0000] {process_utils.py:194} INFO - Using cached google_api_core-2.24.0-py3-none-any.whl (158 kB)
+[2025-01-08T12:25:46.021+0000] {process_utils.py:194} INFO - Using cached google_cloud_core-2.4.1-py2.py3-none-any.whl (29 kB)
+[2025-01-08T12:25:46.026+0000] {process_utils.py:194} INFO - Using cached google_resumable_media-2.7.2-py2.py3-none-any.whl (81 kB)
+[2025-01-08T12:25:46.031+0000] {process_utils.py:194} INFO - Using cached greenlet-3.1.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (613 kB)
+[2025-01-08T12:25:46.036+0000] {process_utils.py:194} INFO - Using cached grpc_google_iam_v1-0.14.0-py2.py3-none-any.whl (27 kB)
+[2025-01-08T12:25:46.040+0000] {process_utils.py:194} INFO - Using cached idna-3.10-py3-none-any.whl (70 kB)
+[2025-01-08T12:25:46.045+0000] {process_utils.py:194} INFO - Using cached isodate-0.6.1-py2.py3-none-any.whl (41 kB)
+[2025-01-08T12:25:46.061+0000] {process_utils.py:194} INFO - Using cached jinja2-3.1.5-py3-none-any.whl (134 kB)
+[2025-01-08T12:25:46.064+0000] {process_utils.py:194} INFO - Using cached jsonpath_python-1.0.6-py3-none-any.whl (7.6 kB)
+[2025-01-08T12:25:46.066+0000] {process_utils.py:194} INFO - Using cached jsonref-0.2-py3-none-any.whl (9.3 kB)
+[2025-01-08T12:25:46.068+0000] {process_utils.py:194} INFO - Using cached markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+[2025-01-08T12:25:46.070+0000] {process_utils.py:194} INFO - Using cached marshmallow-3.24.1-py3-none-any.whl (49 kB)
+[2025-01-08T12:25:46.073+0000] {process_utils.py:194} INFO - Using cached mypy_extensions-1.0.0-py3-none-any.whl (4.7 kB)
+[2025-01-08T12:25:46.075+0000] {process_utils.py:194} INFO - Using cached numpy-1.26.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.0 MB)
+[2025-01-08T12:25:46.094+0000] {process_utils.py:194} INFO - Using cached packaging-23.2-py3-none-any.whl (53 kB)
+[2025-01-08T12:25:46.097+0000] {process_utils.py:194} INFO - Using cached platformdirs-4.3.6-py3-none-any.whl (18 kB)
+[2025-01-08T12:25:46.101+0000] {process_utils.py:194} INFO - Using cached proto_plus-1.25.0-py3-none-any.whl (50 kB)
+[2025-01-08T12:25:46.105+0000] {process_utils.py:194} INFO - Using cached protobuf-5.29.2-cp38-abi3-manylinux2014_x86_64.whl (319 kB)
+[2025-01-08T12:25:46.109+0000] {process_utils.py:194} INFO - Using cached pyasn1_modules-0.4.1-py3-none-any.whl (181 kB)
+[2025-01-08T12:25:46.112+0000] {process_utils.py:194} INFO - Using cached pygments-2.19.1-py3-none-any.whl (1.2 MB)
+[2025-01-08T12:25:46.117+0000] {process_utils.py:194} INFO - Using cached PyJWT-2.10.1-py3-none-any.whl (22 kB)
+[2025-01-08T12:25:46.121+0000] {process_utils.py:194} INFO - Using cached pyOpenSSL-24.3.0-py3-none-any.whl (56 kB)
+[2025-01-08T12:25:46.125+0000] {process_utils.py:194} INFO - Using cached pyrate_limiter-3.1.1-py3-none-any.whl (23 kB)
+[2025-01-08T12:25:46.130+0000] {process_utils.py:194} INFO - Using cached pyrsistent-0.20.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (122 kB)
+[2025-01-08T12:25:46.133+0000] {process_utils.py:194} INFO - Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+[2025-01-08T12:25:46.136+0000] {process_utils.py:194} INFO - Using cached pytzdata-2020.1-py2.py3-none-any.whl (489 kB)
+[2025-01-08T12:25:46.140+0000] {process_utils.py:194} INFO - Using cached rapidfuzz-3.11.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+[2025-01-08T12:25:46.147+0000] {process_utils.py:194} INFO - Using cached rsa-4.9-py3-none-any.whl (34 kB)
+[2025-01-08T12:25:46.151+0000] {process_utils.py:194} INFO - Using cached serpyco_rs-1.11.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (451 kB)
+[2025-01-08T12:25:46.155+0000] {process_utils.py:194} INFO - Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+[2025-01-08T12:25:46.158+0000] {process_utils.py:194} INFO - Using cached sortedcontainers-2.4.0-py2.py3-none-any.whl (29 kB)
+[2025-01-08T12:25:46.161+0000] {process_utils.py:194} INFO - Using cached typing_inspect-0.9.0-py3-none-any.whl (8.8 kB)
+[2025-01-08T12:25:46.164+0000] {process_utils.py:194} INFO - Using cached tzdata-2024.2-py2.py3-none-any.whl (346 kB)
+[2025-01-08T12:25:46.168+0000] {process_utils.py:194} INFO - Using cached Unidecode-1.3.8-py3-none-any.whl (235 kB)
+[2025-01-08T12:25:46.171+0000] {process_utils.py:194} INFO - Using cached urllib3-2.3.0-py3-none-any.whl (128 kB)
+[2025-01-08T12:25:46.175+0000] {process_utils.py:194} INFO - Using cached xmltodict-0.13.0-py2.py3-none-any.whl (10.0 kB)
+[2025-01-08T12:25:46.178+0000] {process_utils.py:194} INFO - Using cached backoff-2.2.1-py3-none-any.whl (15 kB)
+[2025-01-08T12:25:46.181+0000] {process_utils.py:194} INFO - Using cached psycopg_pool-3.2.4-py3-none-any.whl (38 kB)
+[2025-01-08T12:25:46.185+0000] {process_utils.py:194} INFO - Using cached requests_cache-1.2.1-py3-none-any.whl (61 kB)
+[2025-01-08T12:25:46.188+0000] {process_utils.py:194} INFO - Using cached tomlkit-0.13.2-py3-none-any.whl (37 kB)
+[2025-01-08T12:25:46.193+0000] {process_utils.py:194} INFO - Using cached bracex-2.5.post1-py3-none-any.whl (11 kB)
+[2025-01-08T12:25:46.197+0000] {process_utils.py:194} INFO - Using cached cattrs-24.1.2-py3-none-any.whl (66 kB)
+[2025-01-08T12:25:46.201+0000] {process_utils.py:194} INFO - Using cached google_crc32c-1.6.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (32 kB)
+[2025-01-08T12:25:46.206+0000] {process_utils.py:194} INFO - Using cached googleapis_common_protos-1.66.0-py2.py3-none-any.whl (221 kB)
+[2025-01-08T12:25:46.211+0000] {process_utils.py:194} INFO - Using cached grpcio-1.69.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (5.9 MB)
+[2025-01-08T12:25:46.226+0000] {process_utils.py:194} INFO - Using cached grpcio_status-1.69.0-py3-none-any.whl (14 kB)
+[2025-01-08T12:25:46.229+0000] {process_utils.py:194} INFO - Using cached jsonpatch-1.33-py2.py3-none-any.whl (12 kB)
+[2025-01-08T12:25:46.232+0000] {process_utils.py:194} INFO - Using cached langsmith-0.1.147-py3-none-any.whl (311 kB)
+[2025-01-08T12:25:46.250+0000] {process_utils.py:194} INFO - Using cached MarkupSafe-3.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (23 kB)
+[2025-01-08T12:25:46.253+0000] {process_utils.py:194} INFO - Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+[2025-01-08T12:25:46.273+0000] {process_utils.py:194} INFO - Using cached pyasn1-0.6.1-py3-none-any.whl (83 kB)
+[2025-01-08T12:25:46.277+0000] {process_utils.py:194} INFO - Using cached regex-2024.11.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (796 kB)
+[2025-01-08T12:25:46.282+0000] {process_utils.py:194} INFO - Using cached tenacity-8.5.0-py3-none-any.whl (28 kB)
+[2025-01-08T12:25:46.285+0000] {process_utils.py:194} INFO - Using cached url_normalize-1.4.3-py2.py3-none-any.whl (6.8 kB)
+[2025-01-08T12:25:46.289+0000] {process_utils.py:194} INFO - Using cached attributes_doc-0.4.0-py2.py3-none-any.whl (4.6 kB)
+[2025-01-08T12:25:46.293+0000] {process_utils.py:194} INFO - Using cached joblib-1.4.2-py3-none-any.whl (301 kB)
+[2025-01-08T12:25:46.297+0000] {process_utils.py:194} INFO - Using cached pycparser-2.22-py3-none-any.whl (117 kB)
+[2025-01-08T12:25:46.301+0000] {process_utils.py:194} INFO - Using cached tqdm-4.67.1-py3-none-any.whl (78 kB)
+[2025-01-08T12:25:46.305+0000] {process_utils.py:194} INFO - Using cached httpx-0.28.1-py3-none-any.whl (73 kB)
+[2025-01-08T12:25:46.308+0000] {process_utils.py:194} INFO - Using cached httpcore-1.0.7-py3-none-any.whl (78 kB)
+[2025-01-08T12:25:46.312+0000] {process_utils.py:194} INFO - Using cached jsonpointer-3.0.0-py2.py3-none-any.whl (7.6 kB)
+[2025-01-08T12:25:46.317+0000] {process_utils.py:194} INFO - Using cached requests_toolbelt-1.0.0-py2.py3-none-any.whl (54 kB)
+[2025-01-08T12:25:46.321+0000] {process_utils.py:194} INFO - Using cached anyio-4.8.0-py3-none-any.whl (96 kB)
+[2025-01-08T12:25:46.325+0000] {process_utils.py:194} INFO - Using cached h11-0.14.0-py3-none-any.whl (58 kB)
+[2025-01-08T12:25:46.337+0000] {process_utils.py:194} INFO - Using cached sniffio-1.3.1-py3-none-any.whl (10 kB)
+[2025-01-08T12:25:47.421+0000] {process_utils.py:194} INFO - Building wheels for collected packages: pendulum
+[2025-01-08T12:25:47.423+0000] {process_utils.py:194} INFO -   Building wheel for pendulum (pyproject.toml): started
+[2025-01-08T12:25:48.950+0000] {process_utils.py:194} INFO -   Building wheel for pendulum (pyproject.toml): finished with status 'error'
+[2025-01-08T12:25:48.962+0000] {process_utils.py:194} INFO -   error: subprocess-exited-with-error
+[2025-01-08T12:25:48.963+0000] {process_utils.py:194} INFO - 
+[2025-01-08T12:25:48.964+0000] {process_utils.py:194} INFO -   × Building wheel for pendulum (pyproject.toml) did not run successfully.
+[2025-01-08T12:25:48.964+0000] {process_utils.py:194} INFO -   │ exit code: 1
+[2025-01-08T12:25:48.965+0000] {process_utils.py:194} INFO -   ╰─> [28 lines of output]
+[2025-01-08T12:25:48.966+0000] {process_utils.py:194} INFO -       The "poetry.dev-dependencies" section is deprecated and will be removed in a future version. Use "poetry.group.dev.dependencies" instead.
+[2025-01-08T12:25:48.967+0000] {process_utils.py:194} INFO -       Traceback (most recent call last):
+[2025-01-08T12:25:48.967+0000] {process_utils.py:194} INFO -         File "/tmp/pip-install-bulj91hx/pendulum_885b279efa5c4b63a838e5a6ec791e7b/build.py", line 5, in <module>
+[2025-01-08T12:25:48.968+0000] {process_utils.py:194} INFO -           from distutils.command.build_ext import build_ext
+[2025-01-08T12:25:48.969+0000] {process_utils.py:194} INFO -       ModuleNotFoundError: No module named 'distutils'
+[2025-01-08T12:25:48.969+0000] {process_utils.py:194} INFO -       Traceback (most recent call last):
+[2025-01-08T12:25:48.970+0000] {process_utils.py:194} INFO -         File "/tmp/venv10jeyowi/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 353, in <module>
+[2025-01-08T12:25:48.970+0000] {process_utils.py:194} INFO -           main()
+[2025-01-08T12:25:48.971+0000] {process_utils.py:194} INFO -         File "/tmp/venv10jeyowi/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 335, in main
+[2025-01-08T12:25:48.972+0000] {process_utils.py:194} INFO -           json_out['return_val'] = hook(**hook_input['kwargs'])
+[2025-01-08T12:25:48.972+0000] {process_utils.py:194} INFO -                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-01-08T12:25:48.973+0000] {process_utils.py:194} INFO -         File "/tmp/venv10jeyowi/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 251, in build_wheel
+[2025-01-08T12:25:48.973+0000] {process_utils.py:194} INFO -           return _build_backend().build_wheel(wheel_directory, config_settings,
+[2025-01-08T12:25:48.974+0000] {process_utils.py:194} INFO -                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-01-08T12:25:48.974+0000] {process_utils.py:194} INFO -         File "/tmp/pip-build-env-rusdu8jw/overlay/lib/python3.12/site-packages/poetry/core/masonry/api.py", line 58, in build_wheel
+[2025-01-08T12:25:48.975+0000] {process_utils.py:194} INFO -           return WheelBuilder.make_in(
+[2025-01-08T12:25:48.975+0000] {process_utils.py:194} INFO -                  ^^^^^^^^^^^^^^^^^^^^^
+[2025-01-08T12:25:48.976+0000] {process_utils.py:194} INFO -         File "/tmp/pip-build-env-rusdu8jw/overlay/lib/python3.12/site-packages/poetry/core/masonry/builders/wheel.py", line 91, in make_in
+[2025-01-08T12:25:48.976+0000] {process_utils.py:194} INFO -           wb.build(target_dir=directory)
+[2025-01-08T12:25:48.977+0000] {process_utils.py:194} INFO -         File "/tmp/pip-build-env-rusdu8jw/overlay/lib/python3.12/site-packages/poetry/core/masonry/builders/wheel.py", line 130, in build
+[2025-01-08T12:25:48.977+0000] {process_utils.py:194} INFO -           self._build(zip_file)
+[2025-01-08T12:25:48.978+0000] {process_utils.py:194} INFO -         File "/tmp/pip-build-env-rusdu8jw/overlay/lib/python3.12/site-packages/poetry/core/masonry/builders/wheel.py", line 179, in _build
+[2025-01-08T12:25:48.978+0000] {process_utils.py:194} INFO -           self._run_build_script(self._package.build_script)
+[2025-01-08T12:25:48.979+0000] {process_utils.py:194} INFO -         File "/tmp/pip-build-env-rusdu8jw/overlay/lib/python3.12/site-packages/poetry/core/masonry/builders/wheel.py", line 300, in _run_build_script
+[2025-01-08T12:25:48.979+0000] {process_utils.py:194} INFO -           subprocess.check_call([self.executable.as_posix(), build_script])
+[2025-01-08T12:25:48.980+0000] {process_utils.py:194} INFO -         File "/usr/local/lib/python3.12/subprocess.py", line 413, in check_call
+[2025-01-08T12:25:48.980+0000] {process_utils.py:194} INFO -           raise CalledProcessError(retcode, cmd)
+[2025-01-08T12:25:48.981+0000] {process_utils.py:194} INFO -       subprocess.CalledProcessError: Command '['/tmp/venv10jeyowi/bin/python', 'build.py']' returned non-zero exit status 1.
+[2025-01-08T12:25:48.981+0000] {process_utils.py:194} INFO -       [end of output]
+[2025-01-08T12:25:48.982+0000] {process_utils.py:194} INFO - 
+[2025-01-08T12:25:48.982+0000] {process_utils.py:194} INFO -   note: This error originates from a subprocess, and is likely not a problem with pip.
+[2025-01-08T12:25:48.982+0000] {process_utils.py:194} INFO -   ERROR: Failed building wheel for pendulum
+[2025-01-08T12:25:48.983+0000] {process_utils.py:194} INFO - Failed to build pendulum
+[2025-01-08T12:25:49.307+0000] {process_utils.py:194} INFO - ERROR: ERROR: Failed to build installable wheels for some pyproject.toml based projects (pendulum)
+[2025-01-08T12:25:51.351+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 505, in execute
+    return super().execute(context=serializable_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 868, in execute_callable
+    self._prepare_venv(tmp_path)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 769, in _prepare_venv
+    prepare_virtualenv(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/python_virtualenv.py", line 119, in prepare_virtualenv
+    execute_in_subprocess(pip_cmd)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/process_utils.py", line 175, in execute_in_subprocess
+    execute_in_subprocess_with_kwargs(cmd, cwd=cwd, env=env)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/process_utils.py", line 198, in execute_in_subprocess_with_kwargs
+    raise subprocess.CalledProcessError(exit_code, cmd)
+subprocess.CalledProcessError: Command '['/tmp/venv10jeyowi/bin/pip', 'install', '-r', '/tmp/venv10jeyowi/requirements.txt']' returned non-zero exit status 1.
+[2025-01-08T12:25:51.372+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=task_dependency_airbyte_dag, task_id=test_sources_caches, run_id=scheduled__2024-03-04T00:00:00+00:00, execution_date=20240304T000000, start_date=20250108T122445, end_date=20250108T122551
+[2025-01-08T12:25:51.400+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-08T12:25:51.401+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 456 for task test_sources_caches (Command '['/tmp/venv10jeyowi/bin/pip', 'install', '-r', '/tmp/venv10jeyowi/requirements.txt']' returned non-zero exit status 1.; 13230)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 505, in execute
+    return super().execute(context=serializable_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 868, in execute_callable
+    self._prepare_venv(tmp_path)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 769, in _prepare_venv
+    prepare_virtualenv(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/python_virtualenv.py", line 119, in prepare_virtualenv
+    execute_in_subprocess(pip_cmd)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/process_utils.py", line 175, in execute_in_subprocess
+    execute_in_subprocess_with_kwargs(cmd, cwd=cwd, env=env)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/process_utils.py", line 198, in execute_in_subprocess_with_kwargs
+    raise subprocess.CalledProcessError(exit_code, cmd)
+subprocess.CalledProcessError: Command '['/tmp/venv10jeyowi/bin/pip', 'install', '-r', '/tmp/venv10jeyowi/requirements.txt']' returned non-zero exit status 1.
+[2025-01-08T12:25:51.417+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-01-08T12:25:51.448+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-08T12:25:51.492+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
