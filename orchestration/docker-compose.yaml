@@ -51,10 +51,12 @@ x-airflow-common:
   # and uncomment the "build" line below, Then run `docker-compose build` to build the images.
   # image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.10.4}
   build: .
+  env_file:
+      - ./.env
   environment:
     &airflow-common-env
-    # AIRFLOW__CORE__EXECUTOR: CeleryExecutor
-    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+    # AIRFLOW__CORE__EXECUTOR: LocalExecutor
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
     AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@postgres/airflow
     AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
@@ -63,6 +65,7 @@ x-airflow-common:
     # AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
+    AIRFLOW_UID: 50000
     # yamllint disable rule:line-length
     # Use simple http server on scheduler for health checks
     # See https://airflow.apache.org/docs/apache-airflow/stable/administration-and-deployment/logging-monitoring/check-health.html#scheduler-health-check-server
@@ -79,6 +82,7 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
+    - ${AIRFLOW_PROJ_DIR:-.}/venvs:/opt/airflow/venvs
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
@@ -86,6 +90,8 @@ x-airflow-common:
       condition: service_healthy
     postgres:
       condition: service_healthy
+  networks:
+      - airbyte_airbyte_public
 
 services:
   postgres:
@@ -102,6 +108,8 @@ services:
       retries: 5
       start_period: 5s
     restart: always
+    networks:
+        - airbyte_airbyte_public
 
   redis:
     # Redis is limited to 7.2-bookworm due to licencing change
@@ -116,6 +124,8 @@ services:
       retries: 50
       start_period: 30s
     restart: always
+    networks:
+        - airbyte_airbyte_public
 
   airflow-webserver:
     <<: *airflow-common
@@ -244,7 +254,7 @@ services:
       <<: *airflow-common-env
       _AIRFLOW_DB_MIGRATE: 'true'
       _AIRFLOW_WWW_USER_CREATE: 'true'
-      _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
+      _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-testuser}
       _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
       _PIP_ADDITIONAL_REQUIREMENTS: ''
     user: "0:0"
@@ -285,6 +295,11 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
-
+    networks:
+        - airbyte_airbyte_public
 volumes:
   postgres-db-volume:
+
+networks:
+    airbyte_airbyte_public:
+        external: true
