@@ -2,7 +2,10 @@
 .codegpt
 .env
 __pycache__
-orchestration/airflow/logs
+orchestration/airflow/logs/
 databases/mongodb/data
 orchestration/airflow/venvs/
 orchestration/log_error.txt
+orchestration/airflow/data
+.cache
+.venv-source-file
