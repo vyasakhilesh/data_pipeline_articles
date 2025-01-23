@@ -9,3 +9,11 @@ orchestration/log_error.txt
 orchestration/airflow/data
 .cache
 .venv-source-file
+spark/delta-table
+spark/data
+spark/.env.spark
+databases/mongodb/data
+databases/mongodb_atlas/data
+source-*/
+destination-*/
+.codegpt

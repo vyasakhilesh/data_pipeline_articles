@@ -1,0 +1,1 @@
+https://raw.githubusercontent.com/airbytehq/airbyte-api-python-sdk/7884557ac524748f98babbe07466a83fc0aad142/airbyte-api.openapi.yaml
