@@ -38,11 +38,18 @@ COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 RUN pyspark --packages io.delta:delta-spark_2.12:3.3.0 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog"
 
+
+
+
 ENV PATH="/opt/spark/sbin:/opt/spark/bin:${PATH}"
 ENV SPARK_HOME="/opt/spark"
 ENV SPARK_MASTER="spark://spark-master:7077"
+ENV SPARK_MASTER_WEBUI_PORT=8080
 ENV SPARK_MASTER_HOST spark-master
-ENV SPARK_MASTER_PORT 7077
+ENV SPARK_MASTER_PORT=7077
+ENV SPARK_LOG_DIR=/opt/spark/logs
+ENV SPARK_MASTER_LOG=/opt/spark/logs/spark-master.out
+ENV SPARK_WORKER_LOG=/opt/spark/logs/spark-worker.out
 ENV PYSPARK_PYTHON python3
 
 COPY conf/spark-defaults.conf "$SPARK_HOME/conf"
