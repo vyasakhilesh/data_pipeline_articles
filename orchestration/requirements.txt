@@ -2,5 +2,3 @@ apache-airflow
 apache-airflow-providers-airbyte
 apache-airflow[virtualenv]
 cloudpickle
-pyspark
-delta-spark
